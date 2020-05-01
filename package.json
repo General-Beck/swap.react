@@ -18,7 +18,9 @@
     "build:mainnet": "npm run clean:mainnet && cross-env DEBUG=app:* CONFIG=mainnet.prod node ./bin/compile",
     "test:unit": "mocha --require babel-core/register --require ./test/helpers.js --require ./test/dom.js --require ignore-styles 'src/**/*.spec.js'",
     "test:snapshot": "jest --config ./test/jest.config.json",
-    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "keywords": [],
   "author": "@nikdementev",
@@ -135,6 +137,8 @@
     "swap.core": "file:../swap.core",
     "url-parse": "^1.4.1",
     "valuelink": "^1.5.5",
-    "web3": "1.0.0-beta.34"
-  }
+    "web3": "1.0.0-beta.34",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
 }
